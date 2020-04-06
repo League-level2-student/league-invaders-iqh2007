@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Rocketship rocket = new Rocketship(250, 700, 50, 50);
 
 	Timer frameDraw;
-	
+
 	Timer alienSpawn;
 
 	ObjectManager manager = new ObjectManager(rocket);
@@ -101,10 +101,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("Press ENTER to restart", 125, 500);
 
 	}
-	
+
 	void startGame() {
-		alienSpawn = new Timer(1000 , objectManager);
-	    alienSpawn.start();
+
+		alienSpawn = new Timer(1000, manager);
+		alienSpawn.start();
+
 	}
 
 	@Override
@@ -192,8 +194,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			System.out.println("DOWN");
 			rocket.left();
 		}
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (currentState == GAME) {
+				startGame();
+			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (currentState == END) {
+				alienSpawn.stop();
+			}
+		}
 		
-		
+		if(currentState == GAME) {
+			if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+				manager.addProjectile(rocket.getProjectile());			}
+		}
 
 	}
 

@@ -20,10 +20,6 @@ public class ObjectManager implements ActionListener {
 	void addProjectile(Projectile x) {
 
 		projectiles.add(x);
-		
-		addAlien();
-		
-		
 
 	}
 
@@ -53,24 +49,25 @@ public class ObjectManager implements ActionListener {
 
 	void purgeObjects() {
 
-		for(int i = 0; i < aliens.size(); i++) {
-			if(aliens.get(i).isActive==false) {
+		for (int i = 0; i < aliens.size(); i++) {
+			if (aliens.get(i).isActive == false) {
 				aliens.remove(i);
 			}
 		}
-		
-		for(int i = 0; i < projectiles.size(); i++) {
-			if(projectiles.get(i).isActive==false) {
+
+		for (int i = 0; i < projectiles.size(); i++) {
+			if (projectiles.get(i).isActive == false) {
 				projectiles.remove(i);
 			}
 		}
 
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+		addAlien();
+
 	}
 }
