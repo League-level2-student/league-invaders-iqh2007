@@ -32,6 +32,13 @@ public class ObjectManager implements ActionListener {
 			aliens.get(i).update();
 		}
 
+		for (int i = 0; i < projectiles.size(); i++) {
+			projectiles.get(i).update();
+		}
+		
+		checkCollision();
+		purgeObjects();
+
 	}
 
 	void draw(Graphics g) {
@@ -63,10 +70,15 @@ public class ObjectManager implements ActionListener {
 
 	}
 
+	void checkCollision() {
+		
+
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 		addAlien();
 
 	}

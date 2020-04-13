@@ -205,9 +205,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		
-		if(currentState == GAME) {
-			if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-				manager.addProjectile(rocket.getProjectile());			}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE && currentState == GAME) {
+			manager.addProjectile(rocket.getProjectile());
 		}
 
 	}

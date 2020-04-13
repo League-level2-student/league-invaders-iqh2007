@@ -17,18 +17,19 @@ public class Projectile extends GameObject {
 		speed = 10;
 		
 		if (needImage) {
-		    loadImage ("rocket.png");
+		    loadImage ("bullet.png");
 		}
 	}
 
 	void update() {
 		y -= speed;
+		super.update();   
 
 	}
 
 	void draw(Graphics g) {
 
-		g.setColor(Color.RED);
+		
 		g.fillRect(x, y, width, height);
 		
 		if (gotImage) {
