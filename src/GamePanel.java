@@ -30,6 +30,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer frameDraw;
 
 	Timer alienSpawn;
+	
+	boolean isActive = true;
 
 	ObjectManager manager = new ObjectManager(rocket);
 
@@ -52,6 +54,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void updateGameState() {
 
 		manager.update();
+		
+		if(isActive == false) {
+			currentState = END;
+		}
+		
 
 	}
 

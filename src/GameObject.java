@@ -8,7 +8,7 @@ public class GameObject {
 	int height;
 	int speed = 0;
 	boolean isActive = true;
-	Rectangle collisionBox;
+	static Rectangle collisionBox;
 
 	public GameObject(int x, int y, int width, int height) {
 		this.x = x;

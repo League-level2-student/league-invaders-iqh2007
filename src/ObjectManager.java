@@ -71,7 +71,7 @@ public class ObjectManager implements ActionListener {
 	}
 
 	void checkCollision() {
-		
+		Rocketship.collisionBox.intersects(Alien.collisionBox);
 
 	}
 
