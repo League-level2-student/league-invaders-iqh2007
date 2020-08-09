@@ -30,14 +30,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer frameDraw;
 
 	Timer alienSpawn;
-	
-	boolean isActive = true;
 
 	ObjectManager manager = new ObjectManager(rocket);
 
 	public GamePanel() {
-		titleFont1 = new Font("Arial", Font.PLAIN, 48);
-		titleFont2 = new Font("Arial", Font.PLAIN, 24);
+		titleFont1 = new Font("Times New Roman", Font.PLAIN, 48);
+		titleFont2 = new Font("Times New Roman", Font.PLAIN, 24);
 
 		frameDraw = new Timer(1000 / 60, this);
 		frameDraw.restart();
@@ -54,11 +52,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void updateGameState() {
 
 		manager.update();
-		
-		if(isActive == false) {
-			currentState = END;
-		}
-		
 
 	}
 
@@ -180,6 +173,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			} else {
 				currentState++;
 			}
+			
+			if(currentState == GAME) {
+				startGame();
+			}
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -211,9 +208,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				alienSpawn.stop();
 			}
 		}
-		
-		if(e.getKeyCode() == KeyEvent.VK_SPACE && currentState == GAME) {
+
+		if (e.getKeyCode() == KeyEvent.VK_SPACE && currentState == GAME) {
 			manager.addProjectile(rocket.getProjectile());
+		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_ENTER && currentState == GAME) {
+			
 		}
 
 	}
