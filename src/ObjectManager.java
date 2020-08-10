@@ -37,6 +37,9 @@ public class ObjectManager implements ActionListener {
 	}
 
 	void update() {
+		
+		rocketship2.update();
+		
 		for (int i = 0; i < aliens.size(); i++) {
 			aliens.get(i).update();
 		}
@@ -83,6 +86,9 @@ public class ObjectManager implements ActionListener {
 		for (int i = 0; i < aliens.size(); i++) {
 			if (rocketship2.collisionBox.intersects(aliens.get(i).collisionBox)) {
 				rocketship2.isActive = false;
+				aliens.get(i).isActive = false;
+				
+				
 			}
 		}
 
@@ -90,9 +96,13 @@ public class ObjectManager implements ActionListener {
 			for (int i2 = 0; i2 < aliens.size(); i2++) {
 				if (aliens.get(i2).collisionBox.intersects(projectiles.get(i).collisionBox)) {
 					aliens.get(i2).isActive = false;
+					projectiles.get(i).isActive = false;
+					score++;
 				}
 			}
 		}
+		
+		
 
 	}
 

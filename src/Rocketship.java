@@ -19,6 +19,8 @@ public class Rocketship extends GameObject {
 		if (needImage) {
 			loadImage("rocket.png");
 		}
+		
+
 	}
 
 	void draw(Graphics g) {
